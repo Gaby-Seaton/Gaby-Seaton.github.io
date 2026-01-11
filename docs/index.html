@@ -25,10 +25,10 @@
 
     <section class="main-section">
       <div class="content-wrap">
-        <h2>About Me</h2>
-        <p>Short paragraph about Gaby — a concise summary of experience, strengths, and what you're looking for.</p>
+        <h2>ABOUT ME</h2>
+        <p>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."</p>
 
-        <h2>Work History</h2>
+        <h2>WORK HISTORY</h2>
         <article class="job">
           <h3>Local Legend</h3>
           <p class="meta">2021 — Present</p>
@@ -40,11 +40,81 @@
           <p>Largest cap collection on the south coast</p>
         </article>
 
-        <h2>Contact</h2>
+
+        <h3 class="contact-heading">SEND ME YOUR CV</h3>
+        <form id="contactForm" enctype="multipart/form-data">
+          <label>
+            Name<br>
+            <input type="text" name="name" required>
+          </label>
+          <br>
+          <label>
+            Email<br>
+            <input type="email" name="email" required>
+          </label>
+          <br>
+          <label>
+            Message<br>
+            <textarea name="message" rows="4" required></textarea>
+          </label>
+          <br>
+          <label>
+            Attachment (optional)<br>
+            <input type="file" name="attachment" accept="*/*">
+          </label>
+          <br>
+          <button type="submit">Send</button>
+          <p id="contactStatus" aria-live="polite"></p>
+        </form>
+                <h2>CONTACT</h2>
         <p>Email: <a href="mailto:you@example.com">you@example.com</a></p>
+        <p>Phone: 0123456789</p>
+
+
         <footer>
           <small>Built with ❤️ by nim</small>
         </footer>
+      </div>
+    </section>
+
+    <script>
+      const form = document.getElementById('contactForm');
+      const status = document.getElementById('contactStatus');
+      form && form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        status.textContent = 'Sending...';
+        const data = new FormData(form);
+        try {
+          const res = await fetch('/contact', { method: 'POST', body: data });
+          const json = await res.json();
+          if (json && json.ok) {
+            status.textContent = 'Thanks — your message was received.';
+            form.reset();
+          } else {
+            status.textContent = 'Sorry — something went wrong.';
+          }
+        } catch (err) {
+          status.textContent = 'Network error. Try again later.';
+        }
+      });
+    </script>
+    <script>
+      // Match main content width to the hero title width
+      function adjustContentWidth(){
+        const title = document.querySelector('.hero .heading h1');
+        const wrap = document.querySelector('.main-section .content-wrap');
+        if (!title || !wrap) return;
+        const titleWidth = title.getBoundingClientRect().width;
+        // make main content slightly wider than the title (≈20%), with sensible min/max
+        const minWidth = 360;
+        const maxWidth = 1200;
+        const target = Math.ceil(titleWidth * 1.20);
+        const width = Math.min(maxWidth, Math.max(minWidth, target));
+        wrap.style.maxWidth = width + 'px';
+      }
+      window.addEventListener('load', adjustContentWidth);
+      window.addEventListener('resize', adjustContentWidth);
+    </script>
       </div>
     </section>
   </main>

@@ -8,7 +8,6 @@ body{font-family:"DM Sans","DM Sans Placeholder",sans-serif;margin:0;background:
 .photo{width:320px;height:320px;object-fit:cover;border:0;border-radius:0}
 .heading h1{margin:0 0 28px;font-size:4.8rem;line-height:1;font-weight:400}
 .heading-sub .subtitle{margin:12px 0 6px;color:rgba(249,247,235,0.95);font-size:1.9rem;font-weight:400}
-.heading-sub .links{margin-top:12px}
 /* fade-in animations for header */
 .heading h1,
 .heading-sub .subtitle,
@@ -29,6 +28,7 @@ body{font-family:"DM Sans","DM Sans Placeholder",sans-serif;margin:0;background:
   from{opacity:0;transform:translateY(12px)}
   to{opacity:1;transform:translateY(0)}
 }
+.heading-sub .links{margin-top:12px}
 .links{margin-top:10px}
 .links a{color:var(--accent);text-decoration:none;margin:0 10px}
 /* main content below hero as a single section */
@@ -38,31 +38,6 @@ body{font-family:"DM Sans","DM Sans Placeholder",sans-serif;margin:0;background:
 .meta{color:#666;font-size:0.9rem}
 /* footer moved inside main-section; style within content-wrap */
 .content-wrap footer{margin-top:32px;text-align:center;color:#777;padding:12px}
-/* center heading above contact form */
-.contact-heading{
-  text-align:center;
-  margin-top:36px;
-  font-size:1.25rem;
-  font-weight:500;
-  border-top:1px solid rgba(18,76,52,0.08);
-  padding-top:18px;
-}
-
-/* section separators */
-.main-section h2{border-top:1px solid rgba(18,76,52,0.08);padding-top:18px;margin-top:36px}
-.main-section h2:first-of-type{border-top:none;padding-top:0;margin-top:0}
-/* Contact form styling: larger, centered, inherit site font */
-#contactForm{max-width:720px;margin:28px auto;font-size:1.125rem;display:block;font-family:inherit}
-#contactForm label{display:block;margin-bottom:10px;font-size:1rem;color:var(--text)}
-#contactForm input[type="text"],#contactForm input[type="email"],#contactForm textarea,#contactForm input[type="file"]{width:100%;padding:12px 14px;font-size:1rem;border:1px solid rgba(0,0,0,0.08);border-radius:8px;background:#ffffff;color:var(--text);box-shadow:none;box-sizing:border-box}
-#contactForm textarea{resize:vertical}
-#contactForm button{margin-top:10px;padding:12px 20px;font-size:1rem;border-radius:8px;background:var(--card);color:var(--card-text);border:none;cursor:pointer}
-#contactStatus{margin-top:12px;text-align:center;font-size:0.95rem;color:var(--text)}
-
-@media (max-width:640px){
-  #contactForm{padding:0 12px}
-  #contactForm button{width:100%}
-}
 @media (max-width:900px){
   .photo{width:260px;height:260px}
   .heading h1{font-size:3.6rem;margin-bottom:20px}
